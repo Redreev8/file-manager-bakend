@@ -1,6 +1,6 @@
 import fs from 'fs/promises'
 import p from 'path'
-import dirname from '../../__dirname'
+import dirname from '../../dirname'
 
 export const checkFolder = async (path: string[]) => {
     try {

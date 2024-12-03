@@ -1,6 +1,6 @@
 import fs from 'fs/promises'
 import p from 'path'
-import dirname from '../../__dirname'
+import dirname from '../../dirname'
 
 export const checkFile = async (path: string[]) => {
     try {
@@ -12,11 +12,16 @@ export const checkFile = async (path: string[]) => {
 }
 
 export const findFileContent = async (path: string[]) => {
-    return await fs.readFile(p.join(dirname, 'store', ...path), { encoding: "utf8" })
+    return await fs.readFile(p.join(dirname, 'store', ...path), {
+        encoding: 'utf8',
+    })
 }
 
 export const createFile = async (path: string[]) => {
-    return await fs.writeFile(p.join(dirname, 'store', ...path), '', { encoding: "utf8", flag: 'w' })
+    return await fs.writeFile(p.join(dirname, 'store', ...path), '', {
+        encoding: 'utf8',
+        flag: 'w',
+    })
 }
 
 export const renameFile = async (path: string[], newPath: string[]) => {
@@ -27,7 +32,10 @@ export const renameFile = async (path: string[], newPath: string[]) => {
 }
 
 export const changeFileContent = async (path: string[], content: string) => {
-    return await fs.writeFile(p.join(dirname, 'store', ...path), content, { encoding: "utf8", flag: 'w' })
+    return await fs.writeFile(p.join(dirname, 'store', ...path), content, {
+        encoding: 'utf8',
+        flag: 'w',
+    })
 }
 
 export const removeFile = async (path: string[]) => {

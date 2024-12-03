@@ -63,7 +63,7 @@ export const change = async (req, res) => {
         if (!isLife) {
             return res.status(409).json({ message: 'Файл не найден' })
         }
-        
+
         const result = await changeFileContent(path.split('/'), content)
         return res.json(result)
     } catch (e) {

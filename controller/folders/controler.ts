@@ -9,9 +9,9 @@ import {
 import { validationResult } from 'express-validator'
 
 export const check = async (req, res) => {
-    try {    
-        console.log(true);
-            
+    try {
+        console.log(true)
+
         const path = req.url.replace(`/check/${urlFolderRouter}`, '')
         const result = await checkFolder(path.split('/'))
         return res.json(result)
@@ -22,23 +22,26 @@ export const check = async (req, res) => {
 }
 export const find = async (req, res) => {
     try {
-        
         const path = req.url.replace(`/${urlFolderRouter}`, '')
         const result = await findFolderContent(path.split('/'))
-        return res.json(result.map(el => {
-            const ext = el.match(/\.\w+$/g)
-            if (ext) {
-                return {
-                    type: 'file',
-                    name: el.replace(/\.\w+$/g, ''),
-                    ext: ext[0].replace('.', '')
-                }
-            }
-            return {
-                type: 'folder',
-                name: el
-            }
-        }).sort((a) => a.type === 'folder' ? -1 : 1))
+        return res.json(
+            result
+                .map((el) => {
+                    const ext = el.match(/\.\w+$/g)
+                    if (ext) {
+                        return {
+                            type: 'file',
+                            name: el.replace(/\.\w+$/g, ''),
+                            ext: ext[0].replace('.', ''),
+                        }
+                    }
+                    return {
+                        type: 'folder',
+                        name: el,
+                    }
+                })
+                .sort((a) => (a.type === 'folder' ? -1 : 1)),
+        )
     } catch (e) {
         console.log(e)
         res.status(404).json(e)
