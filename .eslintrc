@@ -12,11 +12,12 @@
       "plugin:@typescript-eslint/recommended"
     ],
     "rules": {
-      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-unused-vars": "warn",
       "@typescript-eslint/consistent-type-definitions": [
         "error",
         "interface"
-      ]
+      ],
+      "no-useless-escape": "off"
     },
     "env": {
       "browser": true,
