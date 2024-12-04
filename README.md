@@ -16,12 +16,10 @@
     "prettier:check": "prettier --check \"**/*.ts\"",
     "lint": "eslint --ignore-path .eslintignore \"**/*.ts\" --fix",
     "lint:check": "eslint --ignore-path .eslintignore \"**/*.ts\"",
-    "build": "babel ./ --out-dir dist --extensions .ts --source-maps",
+    "build": "babel ./** --out-dir dist --extensions .ts --source-maps",
     "build:types": "tsc",
-    "dev": "npx ts-node app.ts",
     "start": "node ./dist/app.js",
-    "start": "node ./dist/app.js",
-    "drop": "npx ts-node ./migrations/dropTable.ts"
+    "dev": "npx ts-node app.ts"
 ```
 
 ## Api
