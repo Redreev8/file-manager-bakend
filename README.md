@@ -1,11 +1,8 @@
-# User rest api + jwt token
+# FIle manager
 
 ## Stac
 - express
 - ts
-- redis
-- prosgres
-- jwt 
 - eslint
 - prettier
 - babel
